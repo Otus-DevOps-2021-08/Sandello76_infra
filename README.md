@@ -19,3 +19,11 @@ Sandello76 Infra repository
 - подключение по команде someinternalhost реализовано по добавленному алиасу в ~/.bashrc
 
 alias someinternalhost='ssh someinternalhost'
+
+
+bastion_IP = 84.252.129.79
+someinternalhost_IP = 10.128.0.30
+
+- Доп задание:
+
+доступ к админ панели организован по https://84-252-129-79.sslip.io
