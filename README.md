@@ -1,7 +1,7 @@
 # Sandello76_infra
 Sandello76 Infra repository
 
-- подключение к хосту при помощи ssh тунеля осуществлено при помощи конфигурации .ssh/config :
+- подключение к хосту при помощи ssh тунеля осуществлено через конфигурацию .ssh/config :
 
  Host bastion \
      HostName 84.252.129.79 \
