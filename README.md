@@ -21,7 +21,8 @@ Sandello76 Infra repository
 alias someinternalhost='ssh someinternalhost'
 
 
-bastion_IP = 84.252.129.79 \
+bastion_IP = 84.252.129.79
+ 
 someinternalhost_IP = 10.128.0.30
 
 - Доп задание:
