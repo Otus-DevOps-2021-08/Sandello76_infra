@@ -15,7 +15,7 @@ Sandello76 Infra repository
      User appuser \
      Port 22 \
      IdentityFile ~/.ssh/appuser \
-     ProxyCommand  ssh appuser@bastion nc %h %p \
+     ProxyCommand  ssh appuser@bastion nc %h %p 
 - подключение по команде someinternalhost реализовано по добавленному алиасу в ~/.bashrc
 
 alias someinternalhost='ssh someinternalhost'
