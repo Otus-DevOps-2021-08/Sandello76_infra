@@ -29,6 +29,7 @@ testapp_IP = 62.84.113.176
 
 testapp_port = 9292
 
+
 - Доп задание:
 
 доступ к админ панели организован по https://84-252-129-79.sslip.io
@@ -44,4 +45,5 @@ yc compute instance create \
   --metadata serial-port-enable=1 \
   --metadata-from-file user-data=./startup.yml
 
-  - использовалось: https://cloudinit.readthedocs.io/en/latest/topics/examples.html
+
+ - использовалось: https://cloudinit.readthedocs.io/en/latest/topics/examples.html
