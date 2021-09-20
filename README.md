@@ -26,6 +26,7 @@ bastion_IP = 84.252.129.79
 someinternalhost_IP = 10.128.0.30
 
 testapp_IP = 62.84.113.176
+
 testapp_port = 9292
 
 - Доп задание:
