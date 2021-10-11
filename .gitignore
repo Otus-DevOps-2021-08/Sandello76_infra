@@ -2,3 +2,4 @@
 .idea/
 *~
 get-pip.py
+variables.json
