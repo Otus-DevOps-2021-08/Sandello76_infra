@@ -1,0 +1,6 @@
+{"service_account_key_file": "somepath/key.json",
+"token": "some_value",
+"cloud-id": "some_value",
+"folder-id": "some_value",
+"source_image_family": "some_value",
+"compute-default-zone": "some_value"}
