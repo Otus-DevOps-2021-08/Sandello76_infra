@@ -1,31 +1,50 @@
 {
-"provisioners": [
-{
-"type": "shell",
-"script": "scripts/install_mongodb.sh",
-"execute_command": "sudo {{.Path}}",
-"pause_before": "5s",
-"max_retries": 3
-},
-{
-"type": "shell",
-"script": "scripts/install_ruby.sh",
-"execute_command": "sudo {{.Path}}",
-"pause_before": "5s",
-"max_retries": 3
-}
-],
-"builders": [
-{
-"type": "yandex",
-"service_account_key_file": "/home/raue/key.json",
-"folder_id": "b1gr0mgan8ac1omr1etl",
-"source_image_family": "ubuntu-1604-lts",
-"image_name": "reddit-base-{{timestamp}}",
-"image_family": "reddit-base",
-"ssh_username": "ubuntu",
-"use_ipv4_nat": "true",
-"platform_id": "standard-v1"
-}
-]
+  "variables":
+  {
+    "service_account": "/home/raue/key.json",
+    "folder": "b1gr0mgan8ac1omr1etl"
+  },
+
+  "builders": [
+    {
+      "type": "yandex",
+      "service_account_key_file": "{{user `service_account`}}",
+      "folder_id": "{{user `folder`}}",
+      "source_image_family": "ubuntu-1604-lts",
+      "image_name": "reddit-full",
+      "image_family": "reddit-full",
+      "ssh_username": "ubuntu",
+      "platform_id": "standard-v1",
+      "use_ipv4_nat": "true"
+    }
+  ],
+
+  "provisioners": [
+     {
+      "type": "file",
+      "source": "files/puma.service",
+      "destination": "/tmp/"
+    },
+    {
+      "type": "shell",
+      "script": "scripts/install_ruby.sh",
+      "execute_command": "sudo {{.Path}}",
+      "pause_before": "10s",
+      "max_retries": 3
+    },
+    {
+      "type": "shell",
+      "script": "scripts/install_mongodb.sh",
+      "execute_command": "sudo {{.Path}}",
+      "pause_before": "10s",
+      "max_retries": 3
+    },
+    {
+      "type": "shell",
+      "script": "scripts/deploy.sh",
+      "execute_command": "sudo {{.Path}}",
+      "pause_before": "10s",
+      "max_retries": 3
+    }
+  ]
 }
