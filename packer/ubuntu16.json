@@ -3,7 +3,7 @@
         {
             "type": "yandex",
             "service_account_key_file": "keys.json.example",
-            "folder_id": "{{user `folder_id`}}",
+            "folder_id": "b1gr0mgan8ac1omr1etl",
             "zone":      "ru-central1-a",
             "source_image_family": "ubuntu-1604-lts",
             "image_name": "reddit-base-{{timestamp}}",
