@@ -1,5 +1,4 @@
 {
-    "service_account_key_file": "~/key.json",
     "cloud_id": "CLOUD_ID",
     "folder_id": "FOLDER_ID",
     "subnet_id": "SUBNET_ID"
