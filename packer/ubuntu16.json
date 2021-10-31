@@ -1,11 +1,5 @@
 {
-  "variables":
-  {
-    "service_account": "/home/raue/key.json",
-    "folder": "b1gr0mgan8ac1omr1etl"
-  },
-
-  "builders": [
+ "builders": [
     {
       "type": "yandex",
       "service_account_key_file": "{{user `service_account`}}",
