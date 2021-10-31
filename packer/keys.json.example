@@ -2,6 +2,5 @@
     "service_account_key_file": "~/key.json",
     "cloud_id": "CLOUD_ID",
     "folder_id": "FOLDER_ID",
-    "source_image_family": "ubuntu-1604-lts",
     "subnet_id": "SUBNET_ID"
 }
