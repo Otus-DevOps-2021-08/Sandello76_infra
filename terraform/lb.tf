@@ -1,6 +1,6 @@
-resource "yandex_lb_target_group" "target_group" {
-  name      = "reddit-target-group"
-  region_id = "ru-central1"
+resource "yandex_lb_target_group" "lb-group" {
+  name = "app-lb-group"
+
 
   dynamic "target" {
     for_each = yandex_compute_instance.app
@@ -9,7 +9,6 @@ resource "yandex_lb_target_group" "target_group" {
       address   = target.value.network_interface.0.ip_address
     }
   }
-
   depends_on = [
     yandex_compute_instance.app
   ]
@@ -17,30 +16,29 @@ resource "yandex_lb_target_group" "target_group" {
 
 
 resource "yandex_lb_network_load_balancer" "lb" {
-  name = "reddit-lb"
+  name = "network-load-balancer"
+  type = "external"
 
   listener {
-    name        = "reddit-listener"
-    port        = var.listener_port
-    target_port = var.listener_target_port
+    name = "listener"
+    port = 9292
     external_address_spec {
       ip_version = "ipv4"
     }
   }
 
   attached_target_group {
-    target_group_id = yandex_lb_target_group.target_group.id
+    target_group_id = yandex_lb_target_group.lb-group.id
 
     healthcheck {
       name = "http"
       http_options {
-        port = var.listener_target_port
+        port = 9292
         path = "/"
       }
     }
   }
 
-  depends_on = [
-    yandex_lb_target_group.target_group
-  ]
+
+
 }

@@ -1,22 +1,13 @@
-locals {
-  listener    = tolist(yandex_lb_network_load_balancer.app_lb.listener)[0]
-  listener_ip = tolist(local.listener.external_address_spec)[0].address
+#output "external_ip_address_app1" {
+#  value = yandex_compute_instance.app[1].network_interface.0.nat_ip_address
+#
+#output "external_ip_address_app0" {
+#  value = yandex_compute_instance.app[0].network_interface.0.nat_ip_address
+#}
+output "external_ip_addresses_apps" {
+  value = [for s in yandex_compute_instance.app : map(s.name, s.network_interface.0.nat_ip_address)]
 }
 
-output "hosts_ip_addresses" {
-  description = "Assigned instance IPv4 address"
-  value = [
-    for i in yandex_compute_instance.app :
-    "${i.name}: ${i.network_interface[0].nat_ip_address}"
-  ]
-}
-
-output "external_ip_address_app" {
-  description = "Assigned instance IPv4 address"
-  value       = local.listener_ip
-}
-
-output "app_link" {
-  description = "Application URL"
-  value       = "http://${local.listener_ip}:${var.load_balancer_port}"
+output "external_ip_address_lb" {
+  value = [for s in yandex_lb_network_load_balancer.lb.listener : tolist(s.external_address_spec).0.address].0
 }
