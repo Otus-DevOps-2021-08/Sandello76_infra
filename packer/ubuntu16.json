@@ -4,7 +4,7 @@
             "type": "yandex",
             "service_account_key_file": "keys.json.example",
             "folder_id": "b1gr0mgan8ac1omr1etl",
-            "zone":      "ru-central1-a",
+            "zone": "ru-central1-a",
             "source_image_family": "ubuntu-1604-lts",
             "image_name": "reddit-base-{{timestamp}}",
             "image_family": "reddit-base",
@@ -25,3 +25,4 @@
             "execute_command": "sudo {{.Path}}"
         }
     ]
+}
