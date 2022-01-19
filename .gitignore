@@ -1,4 +1,1 @@
-*.log
-.idea
-get-pip.py
-variables.json
+*.log\n.idea\nget-pip.py\nvariables.json
