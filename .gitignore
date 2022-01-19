@@ -1,5 +1,4 @@
 *.log
-.idea/
-*~
+.idea
 get-pip.py
 variables.json
