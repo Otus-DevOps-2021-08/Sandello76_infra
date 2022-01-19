@@ -4,4 +4,4 @@ key.json
 *.tfstate.*.backup
 *.tfstate.backup
 *.tfvars
-.terraform/
+.terraform
